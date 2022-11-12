@@ -20,24 +20,27 @@ const images = [
 ];
 
 
-const galleryMarkup = document.querySelector(".gallery");
+const galleryEl = document.querySelector(".gallery");
 
-const elements = images.map(image => {
-  const elOfList = document.createElement("img");
-  elOfList.src = ${ image.url };
-  elOfList.alt = ${ image.alt };
+// const elements = images.map(image => {
+//   const itemOfGallery = document.createElement("li");
+//   const elOfList = document.createElement("img");
+//   itemOfGallery.appendChild(elOfList);
+//   elOfList.src = image.url ;
+//   elOfList.alt = image.alt ;
 
   
-  return elOfList;
-});
+//   return itemOfGallery;
+// });
 
-console.log(elements);
+// console.log(elements);
+
+const markup = images
+  .map(image => `<li class="gallery__item"><img class="gallery__img" src="${image.url}" alt="${image.alt}"></li>`)
+  .join("");
+
+galleryEl.insertAdjacentHTML("beforeend", markup);
 
 
 
-
-
-
-
-
-// galleryMarkup.append(...elements);
+// galleryEl.insertAdjacentHTML("beforeend", elements);
